@@ -1,0 +1,28 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    show-sql: 'true'
+  config:
+    import: optional:classpath:.env[.properties]
+data:
+  local:
+    PRODUCT_DEFINITION_FILE: static/DrugStoreProducts-categorized.json
+messaging:
+  pubsub:
+    enabled: true
+    TOPIC_NAME: order-service-topic
+    SUB_NAME: pubsub
+eureka:
+  client:
+    register-with-eureka: 'false'
+    fetch-registry: 'false'
+springdoc:
+  swagger-ui:
+    enabled: 'true'
+    path: /swagger
+  api-docs:
+    path: /api-docs
+server:
+  port: '8092'
